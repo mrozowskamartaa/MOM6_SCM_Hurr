@@ -1,7 +1,95 @@
 import sys, os
 
+#List of overrides for experiment with just kappa shear param
+JHL_overrides = [
+    "USE_KPP = False",
+    "ENERGETICS_SFC_PBL = False",
+    "USE_JACKSON_PARAM = True",
+    "USE_RESTRICTIVE_TOLERANCE_CHECK = True",
+]
+#List of overrides for experiment with OM4-like ePBL
+OM4_overrides = [
+    "USE_KPP = False",
+    "ENERGETICS_SFC_PBL = True",
+    "EPBL_IS_ADDITIVE = False",
+    "ML_OMEGA_FRAC = 0.001",
+    "TKE_DECAY = 0.01",
+    "EPBL_MSTAR_SCHEME = \"OM4\"",
+    "MSTAR_CAP = 10.0",
+    "MSTAR2_COEF1 = 0.29",
+    "MSTAR2_COEF2 = 0.152",
+    "NSTAR = 0.06",
+    "MSTAR_CONV_ADJ = 0.667",
+    "EPBL_TRANSITION_SCALE = 0.01",
+    "MIX_LEN_EXPONENT = 1.0",
+    "USE_LA_LI2016 = True",
+    "EPBL_LANGMUIR_SCHEME = \"ADDITIVE\"",
+    "LT_ENHANCE_COEF = 0.044",
+    "LT_ENHANCE_EXP = -1.5",
+    "LT_MOD_LAC4 = 0.0",
+    "LT_MOD_LAC5 = 0.22 ",
+    "USE_JACKSON_PARAM = True",
+    "USE_RESTRICTIVE_TOLERANCE_CHECK = True",
+]
+#List of overrides for experiment with OM4-like ePBL
+OM5_overrides = [
+    "USE_KPP = False",
+    "ENERGETICS_SFC_PBL = True",
+    "EPBL_IS_ADDITIVE = False",
+    "ML_OMEGA_FRAC = 0.001",
+    "TKE_DECAY = 0.01",
+    "EPBL_MSTAR_SCHEME = \"OM4\"",
+    "MSTAR_CAP = 1.25",
+    "MSTAR2_COEF1 = 0.29",
+    "MSTAR2_COEF2 = 0.152",
+    "NSTAR = 0.06",
+    "MSTAR_CONV_ADJ = 0.667",
+    "EPBL_TRANSITION_SCALE = 0.01",
+    "MIX_LEN_EXPONENT = 1.0",
+    "USE_LA_LI2016 = True",
+    "EPBL_LANGMUIR_SCHEME = \"ADDITIVE\"",
+    "LT_ENHANCE_COEF = 0.044",
+    "LT_ENHANCE_EXP = -1.5",
+    "LT_MOD_LAC4 = 0.0",
+    "LT_MOD_LAC5 = 0.22 ",
+    "USE_JACKSON_PARAM = True",
+    "USE_RESTRICTIVE_TOLERANCE_CHECK = True",
+]
+#List of overrides for experiment with CM4X-like ePBL
+CM4X_overrides = [
+    "USE_KPP = False",
+    "ENERGETICS_SFC_PBL = True",
+    "EPBL_IS_ADDITIVE = False",
+    "TKE_DECAY = 0.001",
+    "EPBL_MSTAR_SCHEME = \"REICHL_H18\"",
+    "MSTAR = 0.0",
+    "RH18_MSTAR_CN3 = -6.0",
+    "NSTAR = 0.06",
+    "MSTAR_CONV_ADJ = 0.66",
+    "USE_MLD_ITERATION = True",
+    "EPBL_VEL_SCALE_SCHEME = \"REICHL_H18\"",
+    "WSTAR_USTAR_COEF = 15.",
+    "EPBL_VEL_SCALE_FACTOR = 0.5477",
+    "VSTAR_SURF_FAC = 1.8258",
+    "EPBL_TRANSITION_SCALE = 0.01",
+    "EPBL_LT = True",
+    "USE_LA_LI2016 = True",
+    "EPBL_LANGMUIR_SCHEME = \"ADDITIVE\"",
+    "LT_MOD_LAC1 = 0.0",
+    "LT_MOD_LAC2 = 0.0",
+    "LT_MOD_LAC3 = 0.0",
+    "LT_MOD_LAC4 = 0.8",
+    "LT_MOD_LAC5 = 0.8",
+    "LT_ENHANCE_COEF = 0.1056",
+    "LT_ENHANCE_EXP = -1.",
+    "LA_DEPTH_RATIO = 0.2",
+    "USE_JACKSON_PARAM = True",
+    "USE_RESTRICTIVE_TOLERANCE_CHECK = True",
+]
+
+
 def write_MOM_input():
-    ##MOM6 parameters                                                                                                                                                          
+    ##MOM6 parameters
     with open("MOM_input", "w") as file:
         for inputs in [
                 "REENTRANT_Y = True",
@@ -111,12 +199,11 @@ def write_diag_table():
                        "\"ocean\",\"all\",.false.,\"none\",2\n")
 
 def write_MOM_override(INP=["",]):
-    ##MOM6 parameters                                                                                                                                                          
+    ##MOM6 parameters
     with open("MOM_override", "w") as file:
         file.write("#MOM_override file\n")
         for inputs in INP:
             file.write("#override "+inputs+"\n")
-            
+
 def run_model(exe="./MOM6"):
     os.system(exe)
-
