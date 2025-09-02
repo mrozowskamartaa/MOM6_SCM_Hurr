@@ -9,8 +9,8 @@ import matplotlib as mpl
 def plot_stress(LES_time,LES_taux,LES_tauy,MOM_time,MOM_taux,MOM_tauy,title=''):
     f,ax=plt.subplots(1,2,figsize=(10,3))
     a=ax.ravel()[0]
-    a.plot(LES_time,LES_taux*1000,'k-',label=r'LES $\tau_x$')
-    a.plot(LES_time,LES_tauy*1000,'k--',label=r'LES $\tau_y$')
+    a.plot(LES_time,LES_taux,'k-',label=r'LES $\tau_x$')
+    a.plot(LES_time,LES_tauy,'k--',label=r'LES $\tau_y$')
     a.plot(MOM_time,MOM_taux,'r-',label=r'MOM $\tau_x$')
     a.plot(MOM_time,MOM_tauy,'r--',label=r'MOM $\tau_y$')
     a.axhline(y=0,color='gray')
@@ -21,7 +21,7 @@ def plot_stress(LES_time,LES_taux,LES_tauy,MOM_time,MOM_taux,MOM_tauy,title=''):
     a.legend()
     
     a=ax.ravel()[1]
-    a.plot(LES_time,np.sqrt((LES_taux*1000)**2+(LES_tauy*1000)**2),'k-',label=r'$\tau$')
+    a.plot(LES_time,np.sqrt((LES_taux)**2+(LES_tauy)**2),'k-',label=r'$\tau$')
     a.plot(MOM_time,np.sqrt(MOM_taux**2+MOM_tauy**2),'k--',label=r'MOM $\tau$')
     a.axhline(y=0,color='gray')
     a.set_ylim(-10.,10)
