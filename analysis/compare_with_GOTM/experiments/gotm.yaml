@@ -2,7 +2,7 @@
 # You can generate a configuration with every possible setting with: gotm --write_yaml <OUTFILE> --detail full
 # To see only the settings that differ from the default, use: gotm --write_yaml <OUTFILE> --detail minimal
 version: 7                              # version of configuration file [default=7]
-title: HURR_LES                         # simulation title used in output [default=GOTM simulation]
+title: MY_01                            # simulation title used in output [default=GOTM simulation]
 location:
    name: hurricane_site                 # station name used in output [default=GOTM site]
    latitude: 27.836                     # latitude [degrees North; min=-90.0; max=90.0; default=0.0]
@@ -21,7 +21,7 @@ grid:
 temperature:                            # temperature profile used for initialization and optionally relaxation [Celsius]  # !! TO GENERATE
    method: file                         # method [off, file=from file, constant, two_layer=two layers with linear gradient in between, buoyancy=from salinity and buoyancy frequency; default=off]
    constant_value: 0.0                  # value to use throughout the simulation [Celsius; default=0.0]
-   file: /gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/MOM6_SCM_Hurr/analysis/compare_with_GOTM/cases/t_prof.dat                     # path to file with series of profiles [default=]
+   file: /gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/MOM6_SCM_Hurr/analysis/compare_with_GOTM/experiments/t_prof.dat                     # path to file with series of profiles [default=]
    column: 1                            # index of column to read from [default=1]
    type: in-situ                        # temperature measure [in-situ, potential, conservative; default=in-situ]  # !! SHOULD THIS BE POTENTIAL?
    two_layer:

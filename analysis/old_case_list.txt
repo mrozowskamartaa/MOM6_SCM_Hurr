@@ -1,0 +1,35 @@
+CaseList=[
+    ['TC021','W65R50T05/ocean.nc.5.0E+04'], #Langmuir
+    #['TC031','W65R50T05/ocean.nc.5.0E+04'], #no Langmuir
+    #['TC022','W65R50T05/ocean.nc.3.0E+04'], #Langmuir
+    #['TC032','W65R50T05/ocean.nc.3.0E+04'], #no Langmuir
+    #['TC023','W65R50T05/ocean.nc.1.0E+04'], #Langmuir
+    #['TC033','W65R50T05/ocean.nc.1.0E+04'], #no Langmuir
+    #['TC024','W65R50T05/ocean.nc.0.0E+04'], #Langmuir
+    #['TC034','W65R50T05/ocean.nc.0.0E+04'], #no Langmuir
+    #['TC025','W65R50T05/ocean.nc.-2.0E+04'], #Langmuir
+    #['TC035','W65R50T05/ocean.nc.-2.0E+04'], #no Langmuir
+    #['TC026','W65R50T05/ocean.nc.-4.0E+04'], #Langmuir
+    #['TC036','W65R50T05/ocean.nc.-4.0E+04'], #no Langmuir
+    #['TC027','W65R50T05/ocean.nc.-6.0E+04'], #Langmuir
+    #['TC037','W65R50T05/ocean.nc.-6.0E+04'], #no Langmuir
+    #['TC028','W65R50T05/ocean.nc.-8.0E+04'], #Langmuir
+    #['TC038','W65R50T05/ocean.nc.-8.0E+04'], #no Langmuir
+    #['TC039','W65R50T05/ocean.nc.-10.0E+04'], #no Langmuir
+    #['TC041','W65R50T10/ocean.nc.5.0E+04'],#Langmuir
+    #['TC052','W65R50T10/ocean.nc.5.0E+04'],#no Langmuir
+    #['TC042','W65R50T10/ocean.nc.3.0E+04'],#Langmuir
+    #['TC053','W65R50T10/ocean.nc.3.0E+04'],#no Langmuir
+    #['TC043','W65R50T10/ocean.nc.1.0E+04'],#Langmuir
+    #['TC054','W65R50T10/ocean.nc.1.0E+04'],#no Langmuir
+    #['TC044','W65R50T10/ocean.nc.0.0E+04'],#Langmuir
+    #['TC055','W65R50T10/ocean.nc.0.0E+04'],#no Langmuir
+    #['TC045','W65R50T10/ocean.nc.-2.0E+04'],#Langmuir
+    #['TC056','W65R50T10/ocean.nc.-2.0E+04'],#no Langmuir
+    #['TC046','W65R50T10/ocean.nc.-4.0E+04'],#Langmuir
+    #['TC057','W65R50T10/ocean.nc.-4.0E+04'],#no Langmuir
+    #['TC047','W65R50T10/ocean.nc.-6.0E+04'],#Langmuir
+    #['TC058','W65R50T10/ocean.nc.-6.0E+04'],#no Langmuir
+    #['TC059','W65R50T10/ocean.nc.-8.0E+04'],#no Langmuir
+    
+         ]

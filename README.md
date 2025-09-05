@@ -56,3 +56,17 @@ f. Verify installation (and optionally, run a test case):
 gotm --version  
 cd ../gotm-cases/ows_papa/  
 gotm  
+
+Step 2: Define GOTM experiment
+
+Find the file: analysis/compare_with_GOTM/experiments/gotm.yaml
+This is the GOTM yaml setup which will be copied into each experiment directory.
+Edit the turbulence closure parameters and change your title to match your changes.
+The experiment subfolder will be called whatever the title you set in the GOTM yaml file.
+
+Step 3: Run your GOTM for all LES cases
+
+Make sure GOTM is activated for this step. To check:
+gotm --version
+To run the experiments:
+python analysis/compare_with_GOTM/run.py

@@ -1,6 +1,17 @@
 import os
 import shutil
 import re
+import yaml
+
+
+def get_title(
+        file: str
+) -> str:
+    
+    with open(file, "r") as f:
+        data = yaml.safe_load(f)
+
+    return data["title"]
 
 
 def edit_yaml(
@@ -13,10 +24,10 @@ def edit_yaml(
         lines = f.readlines()
 
     new_lines = []
-    compiled_pattern = re.compile(pattern)
+    line_to_edit = re.compile(pattern)
 
     for line in lines:
-        match = compiled_pattern.match(line)
+        match = line_to_edit.match(line)
 
         if match:
             indent = match.group('indent')
@@ -30,7 +41,7 @@ def edit_yaml(
         f.writelines(new_lines)
 
 
-def run_gotm_cases(
+def run_gotm_experiments(
         root_dir: str, 
         source_dir_name: str,
         forcing_dir_name: str, 
@@ -39,9 +50,14 @@ def run_gotm_cases(
 
     source_file = os.path.join(root_dir, source_dir_name, "gotm.yaml")
     forcing_dir = os.path.join(root_dir, forcing_dir_name)
+    
+    experiment_name = get_title(source_file)
+    experiment_dir = os.path.join(root_dir, "experiments", experiment_name)
+    os.makedirs(experiment_dir, exist_ok=True)
+    shutil.copy(source_file, experiment_dir)  # TODO: Also copy initial t_profile! Make each stand-alone experiment reproducible by running gotm_runner with specific run files from the exp directory
 
     for case_no, case_name in case_dict.items():
-        case_dir = os.path.join(root_dir, "cases", case_name)
+        case_dir = os.path.join(experiment_dir, f"{case_name}")
         case_file = os.path.join(root_dir, case_dir, "gotm.yaml")
         wind_mag, loc = case_no  # this could probably be better, like if we streamlined how the cases are named and categorized across the 3 models??? yfm
         forcing_file = os.path.join(forcing_dir, wind_mag, f"momentumflux{loc.zfill(3)}.dat")
@@ -67,6 +83,3 @@ def run_gotm_cases(
         
         os.chdir(case_dir)
         os.system('gotm')
-
-
-        
