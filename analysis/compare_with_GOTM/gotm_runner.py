@@ -56,10 +56,10 @@ def run_gotm_experiments(
     os.makedirs(experiment_dir, exist_ok=True)
     shutil.copy(source_file, experiment_dir)  # TODO: Also copy initial t_profile! Make each stand-alone experiment reproducible by running gotm_runner with specific run files from the exp directory
 
-    for case_no, case_name in case_dict.items():
+    for case_specs, case_name in case_dict.items():
         case_dir = os.path.join(experiment_dir, f"{case_name}")
         case_file = os.path.join(root_dir, case_dir, "gotm.yaml")
-        wind_mag, loc = case_no  # this could probably be better, like if we streamlined how the cases are named and categorized across the 3 models??? yfm
+        wind_mag, loc = case_specs
         forcing_file = os.path.join(forcing_dir, wind_mag, f"momentumflux{loc.zfill(3)}.dat")
 
         os.makedirs(case_dir, exist_ok=True)

@@ -5,60 +5,80 @@ import matplotlib as mpl
 
 # Plotting functions
 
-# Temp
-def plot_stress(LES_time,LES_taux,LES_tauy,MOM_time,MOM_taux,MOM_tauy,title=''):
-    f,ax=plt.subplots(1,2,figsize=(10,3))
-    a=ax.ravel()[0]
-    a.plot(LES_time,LES_taux,'k-',label=r'LES $\tau_x$')
-    a.plot(LES_time,LES_tauy,'k--',label=r'LES $\tau_y$')
-    a.plot(MOM_time,MOM_taux,'r-',label=r'MOM $\tau_x$')
-    a.plot(MOM_time,MOM_tauy,'r--',label=r'MOM $\tau_y$')
-    a.axhline(y=0,color='gray')
-    a.set_ylim(-10.,10)
-    a.set_xlim(1,2)
-    a.set_ylabel(r'Surface $\vec{\tau}$ (m/s)',fontsize=12)
-    a.set_xlabel(r'day',fontsize=12)
-    a.legend()
-    
-    a=ax.ravel()[1]
-    a.plot(LES_time,np.sqrt((LES_taux)**2+(LES_tauy)**2),'k-',label=r'$\tau$')
-    a.plot(MOM_time,np.sqrt(MOM_taux**2+MOM_tauy**2),'k--',label=r'MOM $\tau$')
-    a.axhline(y=0,color='gray')
-    a.set_ylim(-10.,10)
-    a.set_xlim(1,2)
-    a.set_ylabel(r'Surface $|\tau|$ (m/s)',fontsize=12)
-    a.set_xlabel(r'day',fontsize=12)
-    a.legend()
-    f.suptitle(title)
-    f.tight_layout()
-    
-def CompT_surf(LES_temp,LES_time,MOM_temp,MOM_time,title=''):
-    
-    f,a=plt.subplots(1,1,figsize=(5,3))
-    a.plot(LES_time,LES_temp,linewidth=2,color='k',linestyle='-',label='LES')
-    a.plot(MOM_time,MOM_temp,'r',label='MOM')
-    a.set_ylim(26,29.3)
-    a.set_xlim(0,3)
-    a.set_ylabel(r'Surface $\Theta$ ($^\circ C$)',fontsize=12)
-    a.set_xlabel(r'day',fontsize=12)
-    a.legend()
-    f.suptitle(title)
-    f.tight_layout()
+def plot_stress_xy(
+        ax: mpl.axes.Axes,
+        data_list: list[dict],
+        color_list: list[str],
+        label_list: list[str],
+):
+    for data, color, label in zip(data_list, color_list, label_list):
+        ax.plot(data['time'], data['taux'], color=color, label=r"{l} $\tau_x$".format(l=label))
+        ax.plot(data['time'], data['tauy'], color=color, label=r"{l} $\tau_y$".format(l=label), linestyle='--')
+    ax.axhline(y=0,color='gray')
+    ax.set_ylim(-12.,12)
+    ax.set_xlim(1,2)
+    ax.set_ylabel(r'Surface $\vec{\tau}$ (m/s)',fontsize=12)
+    ax.set_xlabel(r'day',fontsize=12)
+    ax.legend(ncol=len(data_list))
 
-def CompT_prof(LES_temp,LES_z,MOM_temp,MOM_z,title=''):
-    
-    f,a=plt.subplots(1,1,figsize=(4,5))
-    a.plot(LES_temp[:,0],LES_z,linewidth=2,color='k',linestyle='--')
-    a.plot(LES_temp[:,-1],LES_z,linewidth=2,color='k',linestyle='-',label='LES')
-    a.plot(MOM_temp[:,0],MOM_z,'r--')
-    a.plot(MOM_temp[:,-1],MOM_z,'r',label='MOM')
-    a.set_ylim(220,0)
-    a.set_xlim(20,29.5)
-    a.set_xlabel(r'$\Theta$ ($^\circ C$)',fontsize=12)
-    a.set_ylabel(r'Depth [m]',fontsize=12)
-    a.legend()
-    f.suptitle(title)
-    f.tight_layout()
+
+def plot_stress_mag(
+        ax: mpl.axes.Axes,
+        data_list: list[dict],
+        color_list: list[str],
+        label_list: list[str],
+):
+    for data, color, label in zip(data_list, color_list, label_list):
+        ax.plot(data['time'],np.sqrt(data['taux']**2+data['tauy']**2), color=color, label=label)
+    ax.set_ylim(0.,15)
+    ax.set_xlim(1,2)
+    ax.set_ylabel(r'Surface $|\tau|$ (m/s)',fontsize=12)
+    ax.set_xlabel(r'day',fontsize=12)
+    ax.legend()
+
+
+def plot_stress(
+        axes: mpl.axes.Axes,
+        data_list: list[dict],
+        color_list: list[str],
+        label_list: list[str],
+):
+    ax1, ax2 = axes
+
+    plot_stress_xy(ax1, data_list, color_list, label_list)
+    plot_stress_mag(ax2, data_list, color_list, label_list)
+
+
+def CompT_surf(
+        ax: mpl.axes.Axes,
+        data_list: list[dict],
+        color_list: list[str],
+        label_list: list[str]
+):
+    for data, color, label in zip(data_list, color_list, label_list):
+        ax.plot(data['time'], data['sst'], color=color, label=label)
+    ax.set_ylim(27,29.3)
+    ax.set_xlim(0,3)
+    ax.set_ylabel(r'Surface $\Theta$ ($^\circ C$)',fontsize=12)
+    ax.set_xlabel(r'day',fontsize=12)
+    ax.legend()
+
+
+def CompT_prof(
+        ax: mpl.axes.Axes,
+        data_list: list[dict],
+        color_list: list[str],
+        label_list: list[str],
+):
+    for data, color, label in zip(data_list, color_list, label_list):
+        ax.plot(data['temp'][:,0], data['z'], linewidth=2, color=color, linestyle='--')
+        ax.plot(data['temp'][:,-1], data['z'], linewidth=2, color=color, linestyle='-', label=label)
+    ax.set_ylim(220,0)
+    ax.set_xlim(20,29.5)
+    ax.set_xlabel(r'$\Theta$ ($^\circ C$)',fontsize=12)
+    ax.set_ylabel(r'Depth [m]',fontsize=12)
+    ax.legend()
+
 
 def CompT_Hov(LES_temp,LES_z,LES_time,MOM_temp,MOM_z,MOM_time,title=''):
     f,ax=plt.subplots(2,1,figsize=(10,5))
@@ -83,6 +103,8 @@ def CompT_Hov(LES_temp,LES_z,LES_time,MOM_temp,MOM_z,MOM_time,title=''):
     plt.colorbar(C,ax=a)
     f.suptitle(title)
     f.tight_layout()
+
+
 def CompDeltaT_Hov(LES_temp,LES_z,LES_time,MOM_temp,MOM_z,MOM_time,title=''):
     f,ax=plt.subplots(2,1,figsize=(10,5))
     levels=np.linspace(-1.9,1.9,20)
@@ -106,7 +128,6 @@ def CompDeltaT_Hov(LES_temp,LES_z,LES_time,MOM_temp,MOM_z,MOM_time,title=''):
     plt.colorbar(C,ax=a)
     f.suptitle(title)
     f.tight_layout()
-
 
 
 def Comp_wt(LES_wt,LES_z,LES_time,MOM_wt,MOM_z,MOM_time,title=''):
@@ -135,6 +156,7 @@ def Comp_wt(LES_wt,LES_z,LES_time,MOM_wt,MOM_z,MOM_time,title=''):
     f.suptitle(title)
     f.tight_layout()
 
+
 def Comp_M(LES_time,LES_M,MOM_time,MOM_M,title=''):
     f,a=plt.subplots(1,1,figsize=(10,3))
     a.plot(LES_time,LES_M,'k-')
@@ -145,6 +167,7 @@ def Comp_M(LES_time,LES_M,MOM_time,MOM_M,title=''):
     a.set_title(r'$<bw>_{dz}$ resolved (deg C m/s)',fontsize=12)
     f.suptitle(title)
     f.tight_layout()
+
 
 def Comp_U_surf(LES_u,LES_v,LES_u_s,LES_v_s,LES_z,LES_time,MOM_u,MOM_v,MOM_u_s,MOM_v_s,MOM_z,MOM_time,title=''):
     f,ax=plt.subplots(1,3,figsize=(12,3))
