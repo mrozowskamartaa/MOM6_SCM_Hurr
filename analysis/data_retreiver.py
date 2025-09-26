@@ -26,7 +26,10 @@ class DataRetriever(ABC):
             'time', 'z', 'zi', 'dz',
             'taux', 'tauy', 'temp', 'sst',
             'wt', 'wb', 'M', 
-            'u', 'v', 'u_s', 'v_s'
+            'u_surf', 'v_surf',
+            'u_s_surf', 'v_s_surf',
+            'u', 'v',
+            'u_s', 'v_s'
         ] 
 
     @abstractmethod
@@ -63,12 +66,16 @@ class LESDataRetriever(DataRetriever):
 
         wb, M = compute_M(wt, dz)
         u, v = output['U'][:].T, output['V'][:].T
+        u_surf, v_surf = u[0], v[0]
         u_s, v_s = output['Us'][:].T, output['Vs'][:].T
+        u_s_surf, v_s_surf = u_s[0], v_s[0]
 
         data = [
             time, z, zi, dz, 
             taux, tauy, temp, sst, 
             wt, wb, M, 
+            u_surf, v_surf,
+            u_s_surf, v_s_surf,
             u, v, u_s, v_s]
 
         return {name: value for name, value in zip(self.data_namelist, data)}
@@ -100,12 +107,16 @@ class MOMDataRetriever(DataRetriever):
 
         wb, M = compute_M(wt, dz)
         u, v = output.u.values.T, output.v.values.T
+        u_surf, v_surf = u[0], v[0]
         u_s, v_s = output.u.values.T*0, output.v.values.T*0  # No Stokes drift in these runs!
+        u_s_surf, v_s_surf = u_s[0], v_s[0]
 
         data = [
             time, z, zi, dz, 
             taux, tauy, temp, sst, 
             wt, wb, M, 
+            u_surf, v_surf,
+            u_s_surf, v_s_surf,
             u, v, u_s, v_s]
 
         return {name: value for name, value in zip(self.data_namelist, data)}
@@ -125,22 +136,26 @@ class GOTMDataRetriever(DataRetriever):
         time = (output.time.values - output.time[0].values).astype(float) / 1e9 / 86400
         z = -output.z.isel(time=0).values
         zi = -output.zi.isel(time=0).values
-        dz = zi[2] - zi[1]
+        dz = zi[1] - zi[2]  # zi is negative
 
         taux = output.tx.values * 1000
         tauy = output.ty.values * 1000
         temp = output.temp_p.values.T
         sst = temp[-1]
-        wt = -(output.nuh.values[:,1:-1]*output.temp_p.diff(dim='z').values).T
+        wt = (output.nuh.values[:,1:-1]*output.temp_p.diff(dim='z').values).T
 
         wb, M = compute_M(wt, dz)
         u, v = output.u.values.T, output.v.values.T
+        u_surf, v_surf = output.u[:,-1].values, output.v[:,-1].values
         u_s, v_s = output.us.values.T, output.vs.values.T
+        u_s_surf, v_s_surf = output.us[:,-1].values, output.vs[:,-1].values
 
         data = [
             time, z, zi, dz, 
             taux, tauy, temp, sst, 
             wt, wb, M, 
+            u_surf, v_surf,
+            u_s_surf, v_s_surf,
             u, v, u_s, v_s]
 
         return {name: value for name, value in zip(self.data_namelist, data)}
