@@ -142,7 +142,7 @@ class GOTMDataRetriever(DataRetriever):
         tauy = output.ty.values * 1000
         temp = output.temp_p.values.T
         sst = temp[-1]
-        wt = (output.nuh.values[:,1:-1]*output.temp_p.diff(dim='z').values).T
+        wt = (output.nuh.values*output.temp_p.pad(z=(1), mode="edge").diff(dim='z').values).T / dz
 
         wb, M = compute_M(wt, dz)
         u, v = output.u.values.T, output.v.values.T
