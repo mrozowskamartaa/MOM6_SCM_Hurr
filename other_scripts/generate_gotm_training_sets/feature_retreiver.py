@@ -22,9 +22,12 @@ class FeatureRetreiver:
 
         self.training_set_dir = training_set_dir
         self.case_dict = case_dict
+        self.case_names = [key for key in case_dict.keys()]
 
-        first_case = next(iter(case_dict.keys()))
+        first_case = self.case_names[0]
         self.first_case_output = self.get_output(first_case)
+
+        self.time = self.first_case_output['time'].values
 
 
     def get_output(
@@ -73,25 +76,35 @@ class FeatureRetreiver:
             else:
                 coords_dict[coord] = self.first_case_output[coord].values
 
+        coords_dict['case'] = self.case_names
+
         return coords_dict
     
 
     def make_m_star_dataset(self) -> xr.Dataset:
 
-        coords = {'time': self.first_case_output['time'].values}
+        coords = {
+            'case': self.case_names,
+            'time': self.time
+        }
+
+        # It would have been better to make case dict have int as keys and then 
+        # construct the case names based on those.
+        # Consider this edit in future generation of training datasets.
         
-        data_vars = {}
-        for case in self.case_dict.keys():
-            var_name = f"m_star_{case}"
+        m_star = np.empty((len(self.case_names), len(self.time)))
+
+        for i, case in enumerate(self.case_dict.keys()):
             output = self.get_output(case)
             wt = self.compute_wt(output=output)
             M = self.compute_M(wt=wt)
-            m_star = M / self.compute_u_star(case=case) ** 3
-            data_vars[var_name] = xr.DataArray(
-                m_star,
-                dims=['time'],
-                coords=coords
-            )
+            m_star[i] = M / self.compute_u_star(case=case) ** 3
+        
+        data_vars = {"m_star": xr.DataArray(
+            m_star,
+            dims=['case', 'time'],
+            coords=coords
+        )}
 
         return xr.Dataset(
             data_vars=data_vars,
@@ -108,20 +121,27 @@ class FeatureRetreiver:
     ) -> xr.Dataset:
         
         coords = self.make_coords_dict(coords=coordinates)
+        coordinates = ['case'] + coordinates
 
-        data_vars = {}
-        for case in self.case_dict.keys():
-            var_name = f"{processing_method_name}_{case}"
+        test_array = processing_method(
+            output=self.first_case_output,
+            variable=variable
+        )
+
+        array = np.empty((len(self.case_names),) + test_array.shape)
+
+        for i, case in enumerate(self.case_dict.keys()):
             output = self.get_output(case)
-            array = processing_method(
+            array[i] = processing_method(
                 output=output, 
                 variable=variable
             )
-            data_vars[var_name] = xr.DataArray(
-                array,
-                dims=coordinates,
-                coords=coords
-            )
+        
+        data_vars = {f"{processing_method_name}_{variable}" : xr.DataArray(
+            array,
+            dims=coordinates,
+            coords=coords
+        )}
 
         return xr.Dataset(
             data_vars=data_vars,
@@ -134,19 +154,21 @@ class FeatureRetreiver:
             variable: str,
             coordinates: list[str]
     ) -> xr.Dataset:
-        
-        coords = self.make_coords_dict(coords=coordinates)
 
-        data_vars = {}
-        for case in self.case_dict.keys():
-            var_name = f"{variable}_{case}"
+        coords = self.make_coords_dict(coords=coordinates)
+        coordinates = ['case'] + coordinates
+
+        array = np.empty((len(self.case_names),) + self.first_case_output[variable].shape)
+
+        for i, case in enumerate(self.case_dict.keys()):
             output = self.get_output(case)
-            array = output[variable].values
-            data_vars[var_name] = xr.DataArray(
-                array,
-                dims=coordinates,
-                coords=coords
-            )
+            array[i] = output[variable].values
+        
+        data_vars = {variable : xr.DataArray(
+            array,
+            dims=coordinates,
+            coords=coords
+        )}
 
         return xr.Dataset(
             data_vars=data_vars,
