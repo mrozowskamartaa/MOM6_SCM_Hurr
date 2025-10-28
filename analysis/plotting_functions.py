@@ -91,7 +91,7 @@ class Plotter:
         for data, color, label in zip(self.data_list, self.color_list, self.label_list):
             ax.plot(data['time'], data['M'], color=color, label=label)
         ax.set_xlim(1,2)
-        ax.set_ylabel(r'<wb>_{dz}',fontsize=12)
+        ax.set_ylabel(r"$\int <w'b'> dz$",fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
         ax.legend()
 

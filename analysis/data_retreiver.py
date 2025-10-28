@@ -7,6 +7,55 @@ import numpy as np
 import scipy.io as sio
 
 
+def compute_NRMSE(
+        sample: np.ndarray,
+        target: np.ndarray
+) -> np.ndarray:
+    return np.sqrt(np.nanmean((sample - target) ** 2)) / (np.nanmax(target) - np.nanmin(target))
+
+
+def compute_NMAE(
+        sample: np.ndarray,
+        target: np.ndarray
+) -> np.ndarray:
+    return np.nanmean(np.abs(sample - target)) / (np.nanmax(target) - np.nanmin(target))
+
+
+def interpolate_and_quantify_timeseries_difference(
+        sample_data_dict: dict,
+        target_data_dict: dict,
+        variable: str,
+        method: str = "NRMSE",
+        mask: bool = False,
+        threshold: float = 0.00001
+) -> float:
+    sample_time, sample_data = sample_data_dict['time'], sample_data_dict[variable]
+    target_time, target_data = target_data_dict['time'], target_data_dict[variable]
+    sample_data_interp = np.interp(target_time, sample_time, sample_data)
+
+    if mask:
+        criterion = np.logical_or(target_data > threshold, sample_data_interp > threshold)
+        data_mask = np.where(criterion)
+        sample, target = sample_data_interp[data_mask], target_data[data_mask]
+    else:
+        sample, target = sample_data_interp, target_data
+
+    if method == "NRMSE":
+        diff = compute_NRMSE(
+            sample=sample,
+            target=target
+        )
+    elif method == "NMAE":
+        diff = compute_NMAE(
+            sample=sample,
+            target=target
+        )
+    else:
+        raise ValueError("method should be 'NRMSE' or 'NMAE'.")
+
+    return diff
+
+
 def compute_M(
         wt: np.ndarray, 
         dz: float
