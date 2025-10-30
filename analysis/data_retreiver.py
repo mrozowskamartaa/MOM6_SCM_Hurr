@@ -21,6 +21,13 @@ def compute_NMAE(
     return np.nanmean(np.abs(sample - target)) / (np.nanmax(target) - np.nanmin(target))
 
 
+def compute_RMSE(
+        sample: np.ndarray,
+        target: np.ndarray
+) -> np.ndarray:
+    return np.sqrt(np.nanmean((sample - target)**2))
+
+
 def interpolate_and_quantify_timeseries_difference(
         sample_data_dict: dict,
         target_data_dict: dict,
@@ -31,14 +38,16 @@ def interpolate_and_quantify_timeseries_difference(
 ) -> float:
     sample_time, sample_data = sample_data_dict['time'], sample_data_dict[variable]
     target_time, target_data = target_data_dict['time'], target_data_dict[variable]
-    sample_data_interp = np.interp(target_time, sample_time, sample_data)
+    new_time = np.linspace(target_time[0], target_time[-1], 1000)
+    sample_data_interp = np.interp(new_time, sample_time, sample_data)
+    target_data_interp = np.interp(new_time, target_time, target_data)
 
     if mask:
-        criterion = np.logical_or(target_data > threshold, sample_data_interp > threshold)
+        criterion = np.logical_or(target_data_interp > threshold, sample_data_interp > threshold)
         data_mask = np.where(criterion)
-        sample, target = sample_data_interp[data_mask], target_data[data_mask]
+        sample, target = sample_data_interp[data_mask], target_data_interp[data_mask]
     else:
-        sample, target = sample_data_interp, target_data
+        sample, target = sample_data_interp, target_data_interp
 
     if method == "NRMSE":
         diff = compute_NRMSE(
@@ -50,12 +59,18 @@ def interpolate_and_quantify_timeseries_difference(
             sample=sample,
             target=target
         )
+    elif method == "RMSE":
+        diff = compute_RMSE(
+            sample=sample,
+            target=target
+        )
     else:
-        raise ValueError("method should be 'NRMSE' or 'NMAE'.")
+        raise ValueError("method should be 'NRMSE', 'NMAE' or 'RMSE'.")
 
     return diff
 
 
+# TODO: Allow for dz: Union[float, np.ndarray]
 def compute_M(
         wt: np.ndarray, 
         dz: float
@@ -69,145 +84,230 @@ def compute_M(
     return wb, np.sum(wb, axis=1) * dz
 
 
+def compute_mld(
+        temp: np.ndarray,
+        z: np.ndarray,
+        depth: float = 10.,
+        threshold: float = 0.2
+) -> np.ndarray:
+    temp_10_m = temp[np.where(z == depth)[0][0]]
+    temp_mld = temp_10_m - threshold
+    z_2D = z[:,np.newaxis]
+
+    z_above = np.nanmax(np.where(temp > temp_mld[np.newaxis,:], z_2D, np.nan), axis=0)
+    z_below = np.nanmin(np.where(temp < temp_mld[np.newaxis,:], z_2D, np.nan), axis=0)
+
+    temp_above = temp[z_2D==z_above[np.newaxis,:]]
+    temp_below = temp[z_2D==z_below[np.newaxis,:]]
+
+    return z_above + (temp_below - temp_above) * (temp_mld - temp_above) / (z_below - z_above)
+
+
 class DataRetriever(ABC):
-    def __init__(self) -> None:
+    def __init__(
+            self,
+            case_name: str,
+            exp_name: str,
+            case_dir: str
+    ) -> None:
+
         self.data_namelist = [
             'time', 'z', 'zi', 'dz',
-            'taux', 'tauy', 'temp', 'sst',
+            'taux', 'tauy', 'temp', 'sst', 'mld',
             'wt', 'wb', 'M', 
             'u_surf', 'v_surf',
             'u_s_surf', 'v_s_surf',
             'u', 'v',
             'u_s', 'v_s'
-        ] 
+        ]
+
+        self.case_name = case_name
+        self.exp_name = exp_name
+        self.case_dir = case_dir
+
+        self._output = self.get_output()
+
+    @property
+    @abstractmethod
+    def data_path(self) -> str:
+        return ...
 
     @abstractmethod
-    def retreive_data(
-            self,
-            case_name: str,
-            exp_name: str,
-            case_dir: str
-    ) -> dict[str, Any]:
+    def get_output(self) -> Any:
         return ...
+
+    @property
+    def output(self) -> Any:
+        return self._output
+
+    @property
+    @abstractmethod
+    def surface_index(self) -> int:
+        return ...
+    
+    @property
+    @abstractmethod
+    def reference_depth_for_mld_calculation() -> float:
+        return ...
+    
+    @abstractmethod
+    def get_dims(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, float]:
+        return ...
+
+    @abstractmethod
+    def get_wind_stress(self) -> tuple[np.ndarray, np.ndarray]:
+        return ...
+
+    @abstractmethod
+    def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        return ...
+
+    @abstractmethod
+    def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        return ...
+
+    def retreive_data(self) -> dict[str, Any]:
+        time, z, zi, dz = self.get_dims()
+
+        taux, tauy = self.get_wind_stress()
+        temp, wt = self.get_tracers()
+        sst = temp[self.surface_index]
+        mld = compute_mld(
+            temp=temp,
+            z=z,
+            depth=self.reference_depth_for_mld_calculation
+        )
+
+        wb, M = compute_M(wt, dz)
+        u, v, u_s, v_s = self.get_currents()
+        u_surf, v_surf = u[self.surface_index], v[self.surface_index]
+        u_s_surf, v_s_surf = u_s[self.surface_index], v_s[self.surface_index]
+
+        data = [
+            time, z, zi, dz, 
+            taux, tauy, temp, sst, mld,
+            wt, wb, M, 
+            u_surf, v_surf,
+            u_s_surf, v_s_surf,
+            u, v, u_s, v_s]
+
+        return {name: value for name, value in zip(self.data_namelist, data)}
     
 
 class LESDataRetriever(DataRetriever):
-    def retreive_data(
-            self,
-            case_name: str,
-            exp_name: str,
-            case_dir: str
-    ) -> dict[str, Any]:
-        
-        data_path = os.path.join(case_dir, f"{case_name}_PROF.mat")
-        output = sio.loadmat(data_path)
+    @property
+    def data_path(self) -> str:
+        return os.path.join(self.case_dir, f"{self.case_name}_PROF.mat")
 
-        time = output['t'][:].squeeze() / 86400
-        z = output['z'].T[:].squeeze()
-        zi = output['z'].T[:].squeeze()
+    def get_output(self) -> Any:
+        return sio.loadmat(self.data_path)
+
+    @property
+    def surface_index(self) -> int:
+        return 0
+    
+    @property
+    def reference_depth_for_mld_calculation(self) -> float:
+        return 10.
+
+    def get_dims(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        time = self.output['t'][:].squeeze() / 86400
+        z = self.output['z'].T[:].squeeze()
+        zi = self.output['z'].T[:].squeeze()
         dz = zi[2] - zi[1]
+        return time, z, zi, dz
 
-        taux = output['tau13l'][:][:,0] * 1000
-        tauy = output['tau23l'][:][:,0] * 1000
-        temp = (output['T'] - 273.15).T
-        sst = temp[0]
-        wt = (output['tw'][:]).T
+    def get_wind_stress(self) -> tuple[np.ndarray, np.ndarray]:
+        taux = self.output['tau13l'][:][:,0] * 1000
+        tauy = self.output['tau23l'][:][:,0] * 1000
+        return taux, tauy
 
-        wb, M = compute_M(wt, dz)
-        u, v = output['U'][:].T, output['V'][:].T
-        u_surf, v_surf = u[0], v[0]
-        u_s, v_s = output['Us'][:].T, output['Vs'][:].T
-        u_s_surf, v_s_surf = u_s[0], v_s[0]
+    def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        temp = (self.output['T'] - 273.15).T
+        wt = (self.output['tw'][:]).T
+        return temp, wt
 
-        data = [
-            time, z, zi, dz, 
-            taux, tauy, temp, sst, 
-            wt, wb, M, 
-            u_surf, v_surf,
-            u_s_surf, v_s_surf,
-            u, v, u_s, v_s]
-
-        return {name: value for name, value in zip(self.data_namelist, data)}
+    def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        u, v = self.output['U'][:].T, self.output['V'][:].T
+        u_s, v_s = self.output['Us'][:].T, self.output['Vs'][:].T
+        return u, v, u_s, v_s
     
 
 class MOMDataRetriever(DataRetriever):
-    def retreive_data(
-            self,
-            case_name: str,
-            exp_name: str,
-            case_dir: str
-    ) -> dict[str, Any]:
-        
-        data_path = os.path.join(case_dir, exp_name, case_name)
-        output = xr.open_dataset(data_path).isel(xh=0, yh=0, xq=0, yq=0)
+    @property
+    def data_path(self) -> str:
+        return os.path.join(self.case_dir, self.exp_name, self.case_name)
 
-        # The time axis can be cumbersome to work with, this is easier but relies on the MOM output being 15 minutes
+    def get_output(self) -> Any:
+        return xr.open_dataset(self.data_path).isel(xh=0, yh=0, xq=0, yq=0)
+
+    @property
+    def surface_index(self) -> int:
+        return 0
+    
+    @property
+    def reference_depth_for_mld_calculation(self) -> int:
+        return 9.75
+
+    def get_dims(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         out_time = 900  # in seconds
-        time = out_time / 86400 * (np.arange(output.Time.size) + 0.5)
-        z = output.zl.values
-        zi = output.zi.values
+        time = out_time / 86400 * (np.arange(self.output.Time.size) + 0.5)
+        z = self.output.zl.values
+        zi = self.output.zi.values
         dz = zi[2] - zi[1]
+        return time, z, zi, dz
 
-        taux = output.taux.values
-        tauy = output.tauy.values
-        temp = output.temp.values.T
-        sst = temp[0]
-        wt = output.Tflx_dia_diff.values.T
+    def get_wind_stress(self) -> tuple[np.ndarray, np.ndarray]:
+        taux = self.output.taux.values
+        tauy = self.output.tauy.values
+        return taux, tauy
 
-        wb, M = compute_M(wt, dz)
-        u, v = output.u.values.T, output.v.values.T
-        u_surf, v_surf = u[0], v[0]
-        u_s, v_s = output.u.values.T*0, output.v.values.T*0  # No Stokes drift in these runs!
-        u_s_surf, v_s_surf = u_s[0], v_s[0]
+    def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        temp = self.output.temp.values.T
+        wt = self.output.Tflx_dia_diff.values.T
+        return temp, wt
 
-        data = [
-            time, z, zi, dz, 
-            taux, tauy, temp, sst, 
-            wt, wb, M, 
-            u_surf, v_surf,
-            u_s_surf, v_s_surf,
-            u, v, u_s, v_s]
-
-        return {name: value for name, value in zip(self.data_namelist, data)}
+    def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        u, v = self.output.u.values.T, self.output.v.values.T
+        u_s, v_s = self.output.u.values.T*0, self.output.v.values.T*0  # No Stokes drift in these runs!
+        return u, v, u_s, v_s
     
 
 class GOTMDataRetriever(DataRetriever):
-    def retreive_data(
-            self,
-            case_name: str,
-            exp_name: str,
-            case_dir: str
-    ) -> dict[str, Any]:
-        
-        data_path = os.path.join(case_dir, exp_name, f"{case_name}/output.nc")
-        output = xr.open_dataset(data_path).isel(lat=0, lon=0)
+    @property
+    def data_path(self) -> str:
+        return os.path.join(self.case_dir, self.exp_name, f"{self.case_name}/output.nc")
 
-        time = (output.time.values - output.time[0].values).astype(float) / 1e9 / 86400
-        z = -output.z.isel(time=0).values
-        zi = -output.zi.isel(time=0).values
-        dz = zi[1] - zi[2]  # zi is negative
+    def get_output(self) -> Any:
+        return xr.open_dataset(self.data_path).isel(lat=0, lon=0)
 
-        taux = output.tx.values * 1000
-        tauy = output.ty.values * 1000
-        temp = output.temp_p.values.T
-        sst = temp[-1]
-        wt = (output.nuh.values*output.temp_p.pad(z=(1), mode="edge").diff(dim='z').values).T / dz
-
-        wb, M = compute_M(wt, dz)
-        u, v = output.u.values.T, output.v.values.T
-        u_surf, v_surf = output.u[:,-1].values, output.v[:,-1].values
-        u_s, v_s = output.us.values.T, output.vs.values.T
-        u_s_surf, v_s_surf = output.us[:,-1].values, output.vs[:,-1].values
-
-        data = [
-            time, z, zi, dz, 
-            taux, tauy, temp, sst, 
-            wt, wb, M, 
-            u_surf, v_surf,
-            u_s_surf, v_s_surf,
-            u, v, u_s, v_s]
-
-        return {name: value for name, value in zip(self.data_namelist, data)}
+    @property
+    def surface_index(self) -> int:
+        return -1
     
+    @property
+    def reference_depth_for_mld_calculation(self) -> float:
+        return 9.5
 
-    
+    def get_dims(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        time = (self.output.time.values - self.output.time[0].values).astype(float) / 1e9 / 86400
+        z = -self.output.z.isel(time=0).values
+        zi = -self.output.zi.isel(time=0).values
+        dz = zi[1] - zi[2]  # z-axis increases from -z_bot to -z_surf in GOTM
+        return time, z, zi, dz
+
+    def get_wind_stress(self) -> tuple[np.ndarray, np.ndarray]:
+        taux = self.output.tx.values * 1000
+        tauy = self.output.ty.values * 1000
+        return taux, tauy
+
+    # TODO: more robust wt computation which does not assume dz=1!
+    def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        temp = self.output.temp_p.values.T
+        wt = (self.output.nuh.values*self.output.temp_p.pad(z=(1), mode="edge").diff(dim='z').values).T
+        return temp, wt
+
+    def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        u, v = self.output.u.values.T, self.output.v.values.T
+        u_s, v_s = self.output.us.values.T, self.output.vs.values.T
+        return u, v, u_s, v_s

@@ -18,6 +18,21 @@ class Plotter:
         self.label_list = label_list
 
 
+    def plot_mld(
+            self,
+            ax: mpl.axes.Axes
+    ):
+        
+        for data, color, label in zip(self.data_list, self.color_list, self.label_list):
+            ax.plot(data['time'], data['mld'], color=color, label=r"{l} MLD".format(l=label))
+        # ax.axhline(y=0,color='gray')
+        ax.set_ylim(100., 0.)
+        # ax.set_xlim(1,2)
+        ax.set_ylabel(r'MLD [m]',fontsize=12)
+        ax.set_xlabel(r'day',fontsize=12)
+        ax.legend(ncol=3)
+
+
     def plot_stress_xy(
             self,
             ax: mpl.axes.Axes
