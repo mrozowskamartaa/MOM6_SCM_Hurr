@@ -11,11 +11,13 @@ class Plotter:
             self,
             data_list: list[dict],
             color_list: list[str],
-            label_list: list[str]):
+            label_list: list[str],
+            legend_on: bool = True):
         
         self.data_list = data_list
         self.color_list = color_list
         self.label_list = label_list
+        self.legend_on = legend_on
 
 
     def plot_mld(
@@ -26,11 +28,12 @@ class Plotter:
         for data, color, label in zip(self.data_list, self.color_list, self.label_list):
             ax.plot(data['time'], data['mld'], color=color, label=r"{l} MLD".format(l=label))
         # ax.axhline(y=0,color='gray')
-        ax.set_ylim(100., 0.)
-        # ax.set_xlim(1,2)
+        ax.set_ylim(120., 25.)
+        ax.set_xlim(1,3)
         ax.set_ylabel(r'MLD [m]',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend(ncol=3)
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_stress_xy(
@@ -46,7 +49,8 @@ class Plotter:
         ax.set_xlim(1,2)
         ax.set_ylabel(r'Surface $\vec{\tau}$ (m/s)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend(ncol=3)
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_stress_mag(
@@ -59,7 +63,8 @@ class Plotter:
         ax.set_xlim(1,2)
         ax.set_ylabel(r'Surface $|\tau|$ (m/s)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend()
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_stress(
@@ -82,7 +87,8 @@ class Plotter:
         ax.set_xlim(0,3)
         ax.set_ylabel(r'Surface $\Theta$ ($^\circ C$)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend()
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_T_prof(
@@ -96,7 +102,8 @@ class Plotter:
         ax.set_xlim(20,29.5)
         ax.set_xlabel(r'$\Theta$ ($^\circ C$)',fontsize=12)
         ax.set_ylabel(r'Depth [m]',fontsize=12)
-        ax.legend()
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_M(
@@ -108,7 +115,8 @@ class Plotter:
         ax.set_xlim(1,2)
         ax.set_ylabel(r"$\int <w'b'> dz$",fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend()
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_u_surf(
@@ -122,7 +130,8 @@ class Plotter:
         ax.set_xlim(0,3)
         ax.set_ylabel(r'Surface $U$ (m/s)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend(ncol=3)
+        if self.legend_on:
+            ax.legend(ncol=3)
 
     
     def plot_v_surf(
@@ -136,7 +145,8 @@ class Plotter:
         ax.set_xlim(0,3)
         ax.set_ylabel(r'Surface $V$ (m/s)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend(ncol=3)
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_surf_vel_mag(
@@ -150,7 +160,8 @@ class Plotter:
         ax.set_xlim(0,3)
         ax.set_ylabel(r'Surface $|U+V|$ (m/s)',fontsize=12)
         ax.set_xlabel(r'day',fontsize=12)
-        ax.legend(ncol=3)
+        if self.legend_on:
+            ax.legend(ncol=3)
 
 
     def plot_vel(
@@ -163,8 +174,9 @@ class Plotter:
         self.plot_v_surf(ax2)
         self.plot_surf_vel_mag(ax3)
 
-        ax1.get_legend().remove()
-        ax3.get_legend().remove()
+        if self.legend_on:
+            ax1.get_legend().remove()
+            ax3.get_legend().remove()
 
 
     def plot_wt_hov(

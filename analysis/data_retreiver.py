@@ -84,13 +84,26 @@ def compute_M(
     return wb, np.sum(wb, axis=1) * dz
 
 
+def find_nearest(
+        z: np.ndarray,
+        depth: float
+) -> int:
+    z_above = np.where(z <= depth, z, np.nan)
+    z_nearest = np.nanmax(z_above)
+    return np.where(z == z_nearest)[0][0]
+
+
 def compute_mld(
         temp: np.ndarray,
         z: np.ndarray,
         depth: float = 10.,
         threshold: float = 0.2
 ) -> np.ndarray:
-    temp_10_m = temp[np.where(z == depth)[0][0]]
+    z_index = find_nearest(
+        z=z,
+        depth=depth
+    )
+    temp_10_m = temp[z_index]
     temp_mld = temp_10_m - threshold
     z_2D = z[:,np.newaxis]
 
