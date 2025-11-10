@@ -74,7 +74,7 @@ def interpolate_and_quantify_timeseries_difference(
 def compute_M(
         wt: np.ndarray, 
         dz: float
-) -> np.ndarray:
+) -> tuple[np.ndarray, np.ndarray]:
     alpha = -0.2
     grav = 9.81
     rho0 = 1027
@@ -174,6 +174,14 @@ class DataRetriever(ABC):
     @abstractmethod
     def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         return ...
+    
+    @abstractmethod
+    def get_M(
+        self,
+        wt: np.ndarray,
+        dz: float
+    ) -> tuple[np.ndarray, np.ndarray]:
+        return ...
 
     @abstractmethod
     def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -191,7 +199,8 @@ class DataRetriever(ABC):
             depth=self.reference_depth_for_mld_calculation
         )
 
-        wb, M = compute_M(wt, dz)
+        wb, M = self.get_M(wt=wt, dz=dz)
+
         u, v, u_s, v_s = self.get_currents()
         u_surf, v_surf = u[self.surface_index], v[self.surface_index]
         u_s_surf, v_s_surf = u_s[self.surface_index], v_s[self.surface_index]
@@ -239,6 +248,13 @@ class LESDataRetriever(DataRetriever):
         temp = (self.output['T'] - 273.15).T
         wt = (self.output['tw'][:]).T
         return temp, wt
+    
+    def get_M(
+            self,
+            wt: np.ndarray,
+            dz: float
+    ) -> tuple[np.ndarray, np.ndarray]:
+        return compute_M(wt=wt, dz=dz)
 
     def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
         u, v = self.output['U'][:].T, self.output['V'][:].T
@@ -279,6 +295,13 @@ class MOMDataRetriever(DataRetriever):
         temp = self.output.temp.values.T
         wt = self.output.Tflx_dia_diff.values.T
         return temp, wt
+    
+    def get_M(
+            self,
+            wt: np.ndarray,
+            dz: float
+    ) -> tuple[np.ndarray, np.ndarray]:
+        return compute_M(wt=wt, dz=dz)
 
     def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
         u, v = self.output.u.values.T, self.output.v.values.T
@@ -313,6 +336,16 @@ class GOTMDataRetriever(DataRetriever):
         taux = self.output.tx.values * 1000
         tauy = self.output.ty.values * 1000
         return taux, tauy
+    
+    def get_M(
+            self,
+            wt: np.ndarray,
+            dz: float
+    ) -> tuple[np.ndarray, np.ndarray]:
+        wb = -self.output.G.values
+        wb[wb < 0] = 0
+        M = np.sum(wb, axis=1) * dz
+        return wb, M
 
     # TODO: more robust wt computation which does not assume dz=1!
     def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
