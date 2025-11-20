@@ -2,7 +2,7 @@
 # You can generate a configuration with every possible setting with: gotm --write_yaml <OUTFILE> --detail full
 # To see only the settings that differ from the default, use: gotm --write_yaml <OUTFILE> --detail minimal
 version: 7                              # version of configuration file [default=7]
-title: GLS-SANE23-RIST-0.65             # simulation title used in output [default=GOTM simulation]
+title: GLS-SANE23-linear-test                       # simulation title used in output [default=GOTM simulation]
 location:
    name: hurricane_site                 # station name used in output [default=GOTM site]
    latitude: 27.836                     # latitude [degrees North; min=-90.0; max=90.0; default=0.0]
@@ -34,7 +34,7 @@ temperature:                            # temperature profile used for initializ
       tau: 1.00000000E+15               # time scale for interior layer [s; min=0.0; default=1.00000000E+15]
 salinity:                               # salinity profile used for initialization and optionally relaxation [psu]
    method: constant                     # method [off, file=from file, constant, two_layer=two layers with linear gradient in between, buoyancy=from temperature and buoyancy frequency; default=off]
-   constant_value: 0.0                  # value to use throughout the simulation [psu; min=0.0; default=0.0]
+   constant_value: 35.0                  # value to use throughout the simulation [psu; min=0.0; default=0.0]
    file: s_prof.dat                     # path to file with series of profiles [default=]
    column: 1                            # index of column to read from [default=1]
    type: absolute                       # salinity measure [practical, absolute; default=practical]
@@ -167,7 +167,7 @@ turbulence:
       compute_kappa: false              # compute von Karman constant from model parameters [default=true]
       kappa: 0.4                        # von Karman constant [dimensionless; min=0.0; default=0.4]
       compute_c3: true                  # compute c3 (E3 for Mellor-Yamada) from steady-state Richardson number [default=true]
-      Ri_st: 0.65                       # desired steady-state Richardson number [dimensionless; min=0.0; default=0.25]
+      Ri_st: 0.31                       # desired steady-state Richardson number [dimensionless; min=0.0; default=0.25]
       length_lim: false                 # apply Galperin et al. (1988) length scale limitation [default=true]
       galp: 0.27                        # coefficient for length scale limitation [dimensionless; min=0.0; default=0.27]
       const_num: 5.00000000E-04         # constant eddy diffusivity [m^2/s; min=0.0; default=5.00000000E-04]

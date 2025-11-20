@@ -71,6 +71,7 @@ def interpolate_and_quantify_timeseries_difference(
 
 
 # TODO: Allow for dz: Union[float, np.ndarray]
+"""
 def compute_M(
         wt: np.ndarray, 
         dz: float
@@ -80,6 +81,20 @@ def compute_M(
     rho0 = 1027
 
     wb = -wt.T * alpha * grav / rho0
+    wb[wb < 0] = 0
+    return wb, np.sum(wb, axis=1) * dz
+"""
+
+
+def compute_M(
+        wt: np.ndarray, 
+        dz: float
+) -> tuple[np.ndarray, np.ndarray]:
+    alpha = -2.e-4
+    grav = 9.81
+    rho0 = 1027
+
+    wb = -wt.T * alpha * grav
     wb[wb < 0] = 0
     return wb, np.sum(wb, axis=1) * dz
 
@@ -295,7 +310,7 @@ class MOMDataRetriever(DataRetriever):
         temp = self.output.temp.values.T
         wt = self.output.Tflx_dia_diff.values.T
         return temp, wt
-    
+
     def get_M(
             self,
             wt: np.ndarray,
@@ -336,6 +351,13 @@ class GOTMDataRetriever(DataRetriever):
         taux = self.output.tx.values * 1000
         tauy = self.output.ty.values * 1000
         return taux, tauy
+    
+    # def get_M(
+    #         self,
+    #         wt: np.ndarray,
+    #         dz: float
+    # ) -> tuple[np.ndarray, np.ndarray]:
+    #     return compute_M(wt=wt, dz=dz)
     
     def get_M(
             self,
