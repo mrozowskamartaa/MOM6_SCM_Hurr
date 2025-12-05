@@ -371,8 +371,8 @@ class GOTMDataRetriever(DataRetriever):
 
     # TODO: more robust wt computation which does not assume dz=1!
     def get_tracers(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        temp = self.output.temp_p.values.T
-        wt = (self.output.nuh.values*self.output.temp_p.pad(z=(1), mode="edge").diff(dim='z').values).T
+        temp = self.output.temp.values.T
+        wt = (self.output.nuh.values*self.output.temp.pad(z=(1), mode="edge").diff(dim='z').values).T
         return temp, wt
 
     def get_currents(self) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
