@@ -31,7 +31,7 @@ def make_t_profile(
     z_levels = np.arange(z_start,z_end,1)[::-1]
 
     date_start = datetime(2011, 4, 1)
-    date_end = datetime(2011, 5, 1)
+    date_end = datetime(2012, 5, 1)
     delta = 1
     date_list = list(generate_time_range(date_start, date_end, delta))
 
@@ -93,7 +93,7 @@ def run_gotm_experiments(
         t_profile_pattern = r'^(?P<indent>\s*)file:\s+t_prof.dat'
         t_profile_file = make_t_profile(
             case_dir=case_dir,
-            depth=300,
+            depth=600,  # depth=300,
             mld=32,
             temp_grad=case_specs["temp_grad"]
         )

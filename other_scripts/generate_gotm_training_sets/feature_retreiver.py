@@ -56,6 +56,15 @@ class FeatureRetreiver:
         return np.sum(wb, axis=1) * self.dz
 
 
+    def compute_bl(
+            self,
+            output: xr.Dataset
+    ) -> np.ndarray:
+        bl_mask = np.where(output.eps.values > 1e-12, -output.zi.values, np.nan)
+        bl = np.nanmax(bl_mask, axis=1)
+        return bl
+
+
     def compute_wt(
             self,
             output: xr.Dataset
@@ -96,12 +105,46 @@ class FeatureRetreiver:
 
         for i, case in enumerate(self.case_dict.keys()):
             output = self.get_output(case)
-            wt = self.compute_wt(output=output)
-            M = self.compute_M(wt=wt)
+            # wt = self.compute_wt(output=output)
+            # M = self.compute_M(wt=wt)
+            wb = -output.G.values
+            wb[wb < 0] = 0
+            M = np.sum(wb, axis=1) * self.dz
             m_star[i] = M / self.compute_u_star(case=case) ** 3
         
         data_vars = {"m_star": xr.DataArray(
             m_star,
+            dims=['case', 'time'],
+            coords=coords
+        )}
+
+        return xr.Dataset(
+            data_vars=data_vars,
+            coords=coords
+        )
+    
+
+    def make_bl_dataset(self) -> xr.Dataset:
+
+        coords = {
+            'case': self.case_names,
+            'time': self.time
+        }
+
+        # It would have been better to make case dict have int as keys and then 
+        # construct the case names based on those.
+        # Consider this edit in future generation of training datasets.
+        
+        bl = np.empty((len(self.case_names), len(self.time)))
+
+        for i, case in enumerate(self.case_dict.keys()):
+            output = self.get_output(case)
+            # wt = self.compute_wt(output=output)
+            # M = self.compute_M(wt=wt)
+            bl[i] = self.compute_bl(output=output)
+        
+        data_vars = {"bl": xr.DataArray(
+            bl,
             dims=['case', 'time'],
             coords=coords
         )}
