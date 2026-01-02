@@ -1,0 +1,2594 @@
+{
+    "case_1": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_2": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_3": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_4": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_5": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_6": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_7": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_8": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_9": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_10": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_11": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_12": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_13": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_14": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_15": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_16": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_17": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_18": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_19": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_20": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_21": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_22": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_23": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_24": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_25": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_26": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_27": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_28": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_29": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_30": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_31": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_32": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_33": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_34": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_35": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_36": {
+        "temp_grad": 0.001,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_37": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_38": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_39": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_40": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_41": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_42": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_43": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_44": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_45": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_46": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_47": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_48": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_49": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_50": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_51": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_52": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_53": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_54": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_55": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_56": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_57": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_58": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_59": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_60": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_61": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_62": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_63": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_64": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_65": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_66": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_67": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_68": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_69": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_70": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_71": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_72": {
+        "temp_grad": 0.001,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_73": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_74": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_75": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_76": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_77": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_78": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_79": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_80": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_81": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_82": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_83": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_84": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_85": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_86": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_87": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_88": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_89": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_90": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_91": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_92": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_93": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_94": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_95": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_96": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_97": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_98": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_99": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_100": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_101": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_102": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_103": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_104": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_105": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_106": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_107": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_108": {
+        "temp_grad": 0.001,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_109": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_110": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_111": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_112": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_113": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_114": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_115": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_116": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_117": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_118": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_119": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_120": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_121": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_122": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_123": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_124": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_125": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_126": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_127": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_128": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_129": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_130": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_131": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_132": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_133": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_134": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_135": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_136": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_137": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_138": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_139": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_140": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_141": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_142": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_143": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_144": {
+        "temp_grad": 0.01,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_145": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_146": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_147": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_148": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_149": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_150": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_151": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_152": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_153": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_154": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_155": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_156": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_157": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_158": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_159": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_160": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_161": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_162": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_163": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_164": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_165": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_166": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_167": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_168": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_169": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_170": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_171": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_172": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_173": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_174": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_175": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_176": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_177": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_178": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_179": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_180": {
+        "temp_grad": 0.01,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_181": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_182": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_183": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_184": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_185": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_186": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_187": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_188": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_189": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_190": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_191": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_192": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_193": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_194": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_195": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_196": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_197": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_198": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_199": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_200": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_201": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_202": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_203": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_204": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_205": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_206": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_207": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_208": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_209": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_210": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_211": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_212": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_213": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_214": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_215": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_216": {
+        "temp_grad": 0.01,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_217": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_218": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_219": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_220": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_221": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_222": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_223": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_224": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_225": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_226": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_227": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_228": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_229": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_230": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_231": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_232": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_233": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_234": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_235": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_236": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_237": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_238": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_239": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_240": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_241": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_242": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_243": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_244": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_245": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_246": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_247": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_248": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_249": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_250": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_251": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_252": {
+        "temp_grad": 0.02,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_253": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_254": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_255": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_256": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_257": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_258": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_259": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_260": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_261": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_262": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_263": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_264": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_265": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_266": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_267": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_268": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_269": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_270": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_271": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_272": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_273": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_274": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_275": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_276": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_277": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_278": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_279": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_280": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_281": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_282": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_283": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_284": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_285": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_286": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_287": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_288": {
+        "temp_grad": 0.02,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_289": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_290": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_291": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_292": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_293": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_294": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_295": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_296": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_297": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_298": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_299": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_300": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_301": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_302": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_303": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_304": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_305": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_306": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_307": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_308": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_309": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_310": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_311": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_312": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_313": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_314": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_315": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_316": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_317": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_318": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_319": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_320": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_321": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_322": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_323": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_324": {
+        "temp_grad": 0.02,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_325": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_326": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_327": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_328": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_329": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_330": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_331": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_332": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_333": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_334": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_335": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_336": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_337": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_338": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_339": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_340": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_341": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_342": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_343": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_344": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_345": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_346": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_347": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_348": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_349": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_350": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_351": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_352": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_353": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_354": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_355": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_356": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_357": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_358": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_359": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_360": {
+        "temp_grad": 0.04,
+        "tx": 0.1,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_361": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_362": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_363": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_364": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_365": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_366": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_367": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_368": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_369": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_370": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_371": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_372": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_373": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_374": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_375": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_376": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_377": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_378": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_379": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_380": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_381": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_382": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_383": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_384": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_385": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_386": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_387": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_388": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_389": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_390": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_391": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_392": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_393": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_394": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_395": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_396": {
+        "temp_grad": 0.04,
+        "tx": 0.5,
+        "lat": 90.0,
+        "heat_flux": 100
+    },
+    "case_397": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -100
+    },
+    "case_398": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -75
+    },
+    "case_399": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -50
+    },
+    "case_400": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": -25
+    },
+    "case_401": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 0
+    },
+    "case_402": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 25
+    },
+    "case_403": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 50
+    },
+    "case_404": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 75
+    },
+    "case_405": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 10.0,
+        "heat_flux": 100
+    },
+    "case_406": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -100
+    },
+    "case_407": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -75
+    },
+    "case_408": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -50
+    },
+    "case_409": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": -25
+    },
+    "case_410": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 0
+    },
+    "case_411": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 25
+    },
+    "case_412": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 50
+    },
+    "case_413": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 75
+    },
+    "case_414": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 30.0,
+        "heat_flux": 100
+    },
+    "case_415": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -100
+    },
+    "case_416": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -75
+    },
+    "case_417": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -50
+    },
+    "case_418": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": -25
+    },
+    "case_419": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 0
+    },
+    "case_420": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 25
+    },
+    "case_421": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 50
+    },
+    "case_422": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 75
+    },
+    "case_423": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 60.0,
+        "heat_flux": 100
+    },
+    "case_424": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -100
+    },
+    "case_425": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -75
+    },
+    "case_426": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -50
+    },
+    "case_427": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": -25
+    },
+    "case_428": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 0
+    },
+    "case_429": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 25
+    },
+    "case_430": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 50
+    },
+    "case_431": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 75
+    },
+    "case_432": {
+        "temp_grad": 0.04,
+        "tx": 1.0,
+        "lat": 90.0,
+        "heat_flux": 100
+    }
+}

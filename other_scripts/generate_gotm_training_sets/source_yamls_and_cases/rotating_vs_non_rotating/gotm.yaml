@@ -5,12 +5,12 @@ version: 7                              # version of configuration file [default
 title: training_dataset                 # simulation title used in output [default=GOTM simulation]
 location:
    name: idealised site                 # station name used in output [default=GOTM site]
-   latitude: 27.836                     # latitude [degrees North; min=-90.0; max=90.0; default=0.0]
+   latitude: 0.0
    longitude: 0.0                       # longitude [degrees East; min=-360.0; max=360.0; default=0.0]
    depth: 300.0                         # water depth [m; min=0.0; default=100.0]
 time:
    start: 2011/04/01 00:00:00           # start date and time [yyyy-mm-dd HH:MM:SS; default=2017-01-01 00:00:00]
-   stop: 2011/04/10 00:00:00            # stop date and time [yyyy-mm-dd HH:MM:SS; default=2018-01-01 00:00:00]
+   stop: 2012/04/10 00:00:00            # stop date and time [yyyy-mm-dd HH:MM:SS; default=2018-01-01 00:00:00]
    dt: 50.0                             # time step for integration [s; min=0.0; default=3600.0]
 grid:
    nlev: 300                            # number of layers [min=1; default=100]
@@ -21,7 +21,7 @@ grid:
 temperature:                            # temperature profile used for initialization and optionally relaxation [Celsius]  # !! TO GENERATE
    method: file                         # method [off, file=from file, constant, two_layer=two layers with linear gradient in between, buoyancy=from salinity and buoyancy frequency; default=off]
    constant_value: 0.0                  # value to use throughout the simulation [Celsius; default=0.0]
-   file: t_prof.dat                     # path to file with series of profiles [default=]
+   file: /gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/make_smc_training_set/rotating_vs_non_rotating_training_dataset/case_1/t_profile.dat
    column: 1                            # index of column to read from [default=1]
    type: in-situ                        # temperature measure [in-situ, potential, conservative; default=in-situ]  # !! SHOULD THIS BE POTENTIAL?
    two_layer:
@@ -51,12 +51,12 @@ surface:
       method: off                       # method to calculate fluxes from meteorological conditions [off=use prescribed fluxes, kondo=Kondo (1975), fairall=Fairall et al. (1996); default=off]
       heat:                             # prescribed total heat flux (sensible, latent and net longwave-radiation) [W/m^2]
          method: constant               # method [constant, file=from file; default=constant]
-         constant_value: heat_flux            # value to use throughout the simulation [W/m^2; default=0.0]
+         constant_value: 0.0
          file: heat_flux.dat            # path to file with time series [default=]
          column: 1                      # index of column to read from [default=1]
       tx:                               # prescribed momentum flux in West-East direction [Pa]  # !! TO GENERATE
          method: constant               # method [constant, file=from file; default=constant]
-         constant_value: tx            # value to use throughout the simulation [Pa; default=0.0]
+         constant_value: 0.1
          file: t_flux.dat
          column: 1                      # index of column to read from [default=1]
       ty:                               # prescribed momentum flux in South-North direction [Pa]  # !! TO GENERATE
@@ -401,7 +401,7 @@ seagrass:                               # calculate seagrass effect on turbulenc
 restart:
    load: false                          # initialize simulation with state stored in restart.nc [default=false]
 output:
-   output_filename:
+   /gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/make_smc_training_set/rotating_vs_non_rotating_training_dataset/case_1/output:
       time_unit: dt                     # time unit [second, hour, day, month, year, dt=model time step; default=day]
       time_step: 1                      # number of time units between output [min=1; default=1]
       time_method: point                # treatment of time dimension [point=instantaneous, mean, integrated; default=point]
