@@ -63,6 +63,16 @@ class FeatureRetreiver:
         bl_mask = np.where(output.eps.values > 1e-12, -output.zi.values, np.nan)
         bl = np.nanmax(bl_mask, axis=1)
         return bl
+    
+
+    def compute_bl_rh18(
+            self,
+            output: xr.Dataset
+    ) -> np.ndarray:
+        bl_mask = np.where(output.nuh.values > 1e-6, -output.zi.values, np.nan)
+        bl = np.nanmax(bl_mask, axis=1)
+        bl = np.where(np.isnan(bl), 0.0, bl)
+        return bl
 
 
     def compute_wt(
@@ -141,7 +151,7 @@ class FeatureRetreiver:
             output = self.get_output(case)
             # wt = self.compute_wt(output=output)
             # M = self.compute_M(wt=wt)
-            bl[i] = self.compute_bl(output=output)
+            bl[i] = self.compute_bl_rh18(output=output)
         
         data_vars = {"bl": xr.DataArray(
             bl,
