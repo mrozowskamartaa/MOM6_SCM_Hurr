@@ -45,7 +45,8 @@ def run_gotm_experiments(
         root_dir: str, 
         source_dir_name: str,
         forcing_dir_name: str, 
-        case_dict: dict
+        case_dict: dict,
+        langmuir: bool = False
     ) -> None:
 
     source_file = os.path.join(root_dir, source_dir_name, "gotm.yaml")
@@ -61,6 +62,8 @@ def run_gotm_experiments(
         case_file = os.path.join(root_dir, case_dir, "gotm.yaml")
         wind_mag, loc = case_specs
         forcing_file = os.path.join(forcing_dir, wind_mag, f"momentumflux{loc.zfill(3)}.dat")
+        us0_forcing_file = os.path.join(forcing_dir, wind_mag, f"us0_{loc.zfill(3)}.dat")
+        us_profile_forcing_file = os.path.join(forcing_dir, wind_mag, f"us_profile_{loc.zfill(3)}.dat")
 
         os.makedirs(case_dir, exist_ok=True)
         shutil.copy(source_file, case_dir)
@@ -80,6 +83,22 @@ def run_gotm_experiments(
             pattern=output_pattern,
             new_string=f"{output_file}:"
         )
+
+        if langmuir:
+            us0_pattern = r'^(?P<indent>\s*)file:\s+us_surface.dat'
+            us_profile_pattern = r'^(?P<indent>\s*)file:\s+us_profile.dat'
+
+            edit_yaml(
+                file=case_file,
+                pattern=us0_pattern,
+                new_string=f"file: {us0_forcing_file}"
+            )
+
+            edit_yaml(
+                file=case_file,
+                pattern=us_profile_pattern,
+                new_string=f"file: {us_profile_forcing_file}"
+            )
         
         os.chdir(case_dir)
         os.system('gotm')

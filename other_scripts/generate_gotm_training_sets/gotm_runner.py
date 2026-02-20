@@ -93,8 +93,8 @@ def run_gotm_experiments(
         t_profile_pattern = r'^(?P<indent>\s*)file:\s+t_prof.dat'
         t_profile_file = make_t_profile(
             case_dir=case_dir,
-            depth=600,  # depth=300,
-            mld=32,
+            depth=400,
+            mld=1,
             temp_grad=case_specs["temp_grad"]
         )
 
@@ -118,4 +118,3 @@ def run_gotm_experiments(
         
         os.chdir(case_dir)  # TODO: more sophisticated handling of failed runs? maybe not necessary 
         os.system('gotm')
-

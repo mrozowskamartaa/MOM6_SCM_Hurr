@@ -5,15 +5,24 @@ from itertools import product
 import numpy as np
 
 
-training_set_name = "ePBL_paper_linear_2283"
+training_set_name = "ePBL_paper_validation_2283_corrected"
 gotm_case_dict = {}
 root_dir = "/gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/make_smc_training_set"
 
-temperature_gradients = [0.001, 0.01, 0.02, 0.04]
-wind_stresses = [0.1, 0.5, 1.0]
-latitudes = [10., 30., 60., 90.]
-heat_fluxes = np.arange(-100,125,25).tolist()
-# heat_fluxes = [0.0]
+# temperature_gradients = [0.001, 0.01, 0.02, 0.04]
+temperature_gradients = [0.005, 0.015, 0.03]
+# temperature_gradients = [0.5, 1.]
+# wind_stresses = np.arange(0.1, 1.1, 0.1).tolist()
+wind_stresses = [0.25, 0.75, 0.95]
+# wind_stresses = [0.1, 0.5, 1.0]
+# wind_stresses = [0.1, 1.0]
+# latitudes = np.arange(10., 100., 10.).tolist()
+latitudes = [15., 25., 55., 85.]
+# latitudes = [10., 30., 60., 90.]
+# latitudes = [0.0, 1., 5., 60.]
+# heat_fluxes = np.arange(-100,125,25).tolist()
+heat_fluxes = [-90, -40, -10, 10, 40, 90]
+# heat_fluxes = [0.0, 100.0]
 
 for i, combo in enumerate(product(temperature_gradients, wind_stresses, latitudes, heat_fluxes)):
     temp_grad, tx, lat, hf = combo
@@ -26,7 +35,7 @@ with open(f"{root_dir}/{training_set_name}_training_set_cases.json", "w+") as fi
 # with open(f"{root_dir}/{training_set_name}_training_set_cases.json", "r") as file:
 #     gotm_case_dict = json.load(file)
 
-# for i in range(1,11):
+# for i in range(1,35):
 #     gotm_case_dict.pop(f"case_{i}")
 
 run_gotm_experiments(

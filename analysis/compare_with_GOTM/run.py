@@ -2,7 +2,7 @@ from gotm_runner import run_gotm_experiments
 import json
 
 
-type_ = "no_langmuir"
+type_ = "langmuir"
 
 with open(f"/gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/MOM6_SCM_Hurr/analysis/{type_}_cases.json", "r") as file:
     cases_dict = json.load(file)
@@ -18,5 +18,6 @@ run_gotm_experiments(
     root_dir="/gpfs/f5/gfdl_o/scratch/Marta.Mrozowska/hurricane_LES/MOM6_SCM_Hurr/analysis/compare_with_GOTM",
     source_dir_name="experiments",
     forcing_dir_name="experiments/forcing",
-    case_dict=gotm_case_dict
+    case_dict=gotm_case_dict,
+    langmuir=True
 )
